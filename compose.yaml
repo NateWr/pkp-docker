@@ -2,14 +2,13 @@ name: ojs-350
 
 services:
 
-  php-alpine:
+  pkp:
     image: pkp-3.5
     ports:
       - 8000:80
     volumes:
       - ./app:/var/www/html
       - ./files:/var/www/files
-      #- ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     working_dir: /var/www/html
     restart: always
     depends_on:
