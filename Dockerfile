@@ -1,0 +1,74 @@
+FROM php:8.4-apache
+
+ENV PKP_DEPS="\
+    # Basic tools
+    curl \
+    unzip \
+    ca-certificates \
+    build-essential \
+\
+    # PHP extension development libraries
+    libzip-dev \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libwebp-dev \
+    libxml2-dev \
+    libxslt-dev \
+    libfreetype6-dev \
+\
+    # Modern image formats support
+    libavif-dev \
+\
+    # Graphics/X11 support
+    libxpm-dev \
+    libfontconfig1-dev \
+\
+    # PostgreSQL development
+    libpq-dev"
+
+ENV PHP_EXTENSIONS="\
+    # Image processing
+    gd \
+\
+    # Internationalization
+    gettext \
+    intl \
+\
+    # String handling
+    mbstring \
+\
+    # Database connectivity - MySQL/MariaDB
+    mysqli \
+    pdo_mysql \
+\
+    # Database connectivity - PostgreSQL
+    pgsql \
+    pdo_pgsql \
+\
+    # XML processing
+    xml \
+    xsl \
+\
+    # Compression
+    zip \
+\
+    # PKP 3.5
+    bcmath \
+    ftp"
+
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends $PKP_DEPS && \
+    \
+    curl -sSLf https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions \
+    -o /usr/local/bin/install-php-extensions && \
+    chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions $PHP_EXTENSIONS && \
+    \
+    apt-get purge -y --auto-remove build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN a2enmod rewrite
+
+EXPOSE 80
