@@ -2,6 +2,7 @@ FROM php:8.4-apache
 
 ENV PKP_DEPS="\
     # Basic tools
+    vim \
     curl \
     unzip \
     ca-certificates \
@@ -69,6 +70,8 @@ RUN apt-get update && \
     apt-get purge -y --auto-remove build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite && \
+    echo "log_errors = On" >> /usr/local/etc/php/conf.d/log-errors.ini && \
+    echo "error_log = /dev/stderr" >> /usr/local/etc/php/conf.d/log-errors.ini
 
 EXPOSE 80
