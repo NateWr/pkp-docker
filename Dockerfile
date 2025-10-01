@@ -1,4 +1,4 @@
-FROM php:8.4-apache
+FROM php:8.0-apache
 
 ENV PKP_DEPS="\
     # Basic tools

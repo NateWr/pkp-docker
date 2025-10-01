@@ -1,9 +1,9 @@
-name: ojs-350
+name: ojs-3.3
 
 services:
 
   pkp:
-    image: pkp-3.5
+    image: pkp-ojs-3.3
     ports:
       - 8000:80
     volumes:
