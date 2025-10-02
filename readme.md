@@ -42,6 +42,7 @@ Change permissions on the local directories that the Docker container will acces
 
 ```
 chmod -R <user>:www-data ./app
+chmod -R <user>:www-data ./config
 chmod -R <user>:www-data ./files
 ```
 

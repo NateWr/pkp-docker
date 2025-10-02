@@ -3,12 +3,14 @@ name: ojs-350
 services:
 
   pkp:
-    image: pkp-3.5
+    image: pkp-ojs-350
     ports:
       - 8000:80
     volumes:
       - ./app:/var/www/html
       - ./files:/var/www/files
+      - ./config/error_log:/var/www/error_log
+      - ./config/php.custom.ini:/usr/local/etc/php/conf.d/custom.ini
     working_dir: /var/www/html
     restart: always
     depends_on:
