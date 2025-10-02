@@ -1,9 +1,9 @@
-apps
+apps/**/*
 !apps/.gitkeep
 datasets
-files
+files/**/*
 !files/.gitkeep
-plugins
+plugins/**/*
 !plugins/.gitkeep
 compose.yaml
 Dockerfile
