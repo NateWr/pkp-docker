@@ -1,4 +1,9 @@
-app
-files/**/*
-
+apps
+!apps/.gitkeep
+datasets
+files
 !files/.gitkeep
+plugins
+!plugins/.gitkeep
+compose.yaml
+Dockerfile
