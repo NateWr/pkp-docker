@@ -1,6 +1,6 @@
 # Docker for local development of PKP software
 
-> **This is **not for production** deployments.** These notes are for my own use.
+> **This is **not for production** deployments.** You may be looking for the [official PKP docker container](github.com/pkp/containers).
 
 ## Usage
 
