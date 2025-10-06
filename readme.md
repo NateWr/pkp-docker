@@ -19,7 +19,7 @@ docker build -t pkp-ojs-350 .
 Copy the example docker compose file.
 
 ```
-cp compose.example.ojs-350.yaml
+cp compose.example.ojs-350.yaml compose.yaml
 ```
 
 Update the app and version in `compose.yaml`.
@@ -126,7 +126,7 @@ source database.sql;
 
 ## Plugins
 
-Plugins and themes can be stored in a `./plugins` directory and accesed by multiple containers with a symlink.
+Plugins and themes can be stored in a `./plugins` directory and accessed by multiple containers with a symlink.
 
 Clone the plugin into `./plugins`.
 
