@@ -137,7 +137,13 @@ git clone <url> plugins/<name>
 Symlink the plugin in local files to the `/var/www/plugins/` directory in the container. (This volume is defined in the compose file.)
 
 ```
-ln -s /var/www/plugins/<name> ./plugins/<name>
+ln -s /var/www/plugins/<name> ./apps/ojs-350/plugins/<generic|theme|etc>/<name>
+```
+
+If you want your code editor to be able to access the plugin files when OJS/OMP/OPS is open in your code editor, you will also need to symlink the `/var/www/plugins` directory on your local device.
+
+```
+ln -s ./plugins/<name> /var/www/plugins/<name>
 ```
 
 # Errors
