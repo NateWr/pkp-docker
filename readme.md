@@ -72,9 +72,9 @@ mkdir files/ojs-350
 Change permissions on the local directories that the Docker container will access.
 
 ```
-chmod -R <user>:www-data ./apps
-chmod -R <user>:www-data ./config
-chmod -R <user>:www-data ./files
+chown -R <user>:www-data ./apps
+chown -R <user>:www-data ./config
+chown -R <user>:www-data ./files
 ```
 
 Run the containers.
