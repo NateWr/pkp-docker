@@ -5,5 +5,8 @@ files/**/*
 !files/.gitkeep
 plugins/**/*
 !plugins/.gitkeep
+plugin-gallery
 compose.yaml
 Dockerfile
+compose.ojs-330-slub.yaml
+compose.ojs-350-slub.yaml

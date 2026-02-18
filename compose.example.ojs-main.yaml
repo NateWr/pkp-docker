@@ -1,0 +1,34 @@
+name: ojs-main
+
+services:
+
+  pkp:
+    image: pkp-ojs-main
+    ports:
+      - 8000:80
+    volumes:
+      - ./apps/ojs-main:/var/www/html
+      - ./files/ojs-main:/var/www/files
+      - ./config/error_log:/var/www/error_log
+      - ./config/php.custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./plugins:/var/www/plugins
+    working_dir: /var/www/html
+    restart: always
+    depends_on:
+      - db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  db:
+    image: mariadb:10.6.23
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: ojs
+      MYSQL_USER: ojs
+      MYSQL_PASSWORD: ojs
+
+volumes:
+  db_data:
