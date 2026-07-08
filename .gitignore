@@ -10,3 +10,5 @@ compose.yaml
 Dockerfile
 compose.ojs-330-slub.yaml
 compose.ojs-350-slub.yaml
+compose.ojs-330-tib.yaml
+compose.ojs-350-tib.yaml
