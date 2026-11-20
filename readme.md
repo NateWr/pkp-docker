@@ -112,15 +112,15 @@ Login to mysql/mariadb.
 
 ```
 docker exec -it ojs-330-db-1 /bin/sh
-mysql -u ojs -p
+mysql -u <db_username> -p
 ```
 
 Recreate the database.
 
 ```
-drop database ojs;
-create database ojs;
-use ojs;
+drop database <db_name>;
+create database <db_name>;
+use <db_name>;
 source database.sql;
 ```
 
